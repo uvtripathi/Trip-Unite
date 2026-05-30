@@ -1,0 +1,232 @@
+# ════════════════════════════════════════════════════════════════
+#  TripUnite — Root .gitignore
+#  Covers: monorepo root / back-end / front-end
+#  CRITICAL: Never commit secrets, keys, or large generated dirs
+# ════════════════════════════════════════════════════════════════
+
+
+# ──────────────────────────────────────────
+#  🔐 SECRETS & ENVIRONMENT FILES  (CRITICAL)
+# ──────────────────────────────────────────
+
+# All .env files — contain API keys, DB credentials, JWT secrets
+.env
+.env.*
+!.env.example          # ✅ Keep the example/template file for docs
+
+# Specific env files across all sub-dirs
+back-end/.env
+back-end/.env.*
+!back-end/.env.example
+
+front-end/.env
+front-end/.env.*
+!front-end/.env.example
+
+
+# ──────────────────────────────────────────
+#  📦 DEPENDENCY DIRECTORIES
+# ──────────────────────────────────────────
+
+node_modules/
+*/node_modules/
+back-end/node_modules/
+front-end/node_modules/
+
+# Package manager artifacts
+jspm_packages/
+web_modules/
+bower_components/
+
+# Yarn v2+
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+.yarn-integrity
+
+
+# ──────────────────────────────────────────
+#  🏗️ BUILD & DIST OUTPUTS
+# ──────────────────────────────────────────
+
+# React build output
+front-end/build/
+build/
+dist/
+
+# Next.js
+.next/
+out/
+
+# Nuxt.js
+.nuxt/
+
+# Vite
+.vite/
+
+
+# ──────────────────────────────────────────
+#  🪵 LOGS
+# ──────────────────────────────────────────
+
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+
+# ──────────────────────────────────────────
+#  🧪 TEST & COVERAGE OUTPUT
+# ──────────────────────────────────────────
+
+coverage/
+*.lcov
+.nyc_output/
+/coverage
+
+
+# ──────────────────────────────────────────
+#  💻 EDITOR & IDE CONFIG (personal)
+# ──────────────────────────────────────────
+
+.vscode/
+!.vscode/extensions.json   # ✅ Allowed: share recommended extensions only
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+*.swo
+.vscode-test
+
+
+# ──────────────────────────────────────────
+#  🖥️ OPERATING SYSTEM FILES
+# ──────────────────────────────────────────
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+
+# ──────────────────────────────────────────
+#  ⏱️ RUNTIME & PROCESS FILES
+# ──────────────────────────────────────────
+
+pids/
+*.pid
+*.seed
+*.pid.lock
+.node_repl_history
+
+
+# ──────────────────────────────────────────
+#  🗃️ CACHE DIRECTORIES
+# ──────────────────────────────────────────
+
+.npm
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.grunt/
+.temp/
+.fusebox/
+.docusaurus/
+.serverless/
+.dynamodb/
+
+
+# ──────────────────────────────────────────
+#  📊 MISC / DIAGNOSTIC
+# ──────────────────────────────────────────
+
+# Node diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# TypeScript incremental build cache
+*.tsbuildinfo
+
+# Pack output
+*.tgz
+
+# Parcel
+.lock-wscript
+
+# TernJS
+.tern-port
+
+# Vuepress
+.vuepress/dist
+
+
+# ──────────────────────────────────────────
+#  📁 PROJECT-SPECIFIC EXCLUSIONS
+# ──────────────────────────────────────────
+
+# Prototype / design mockups — not production code
+anisha/
+
+# Compiled native addon binaries
+build/Release
+lib-cov
+
+
+# ──────────────────────────────────────────
+#  🔑 EXTRA CREDENTIAL PATTERNS (safety net)
+# ──────────────────────────────────────────
+
+# Private keys & certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+
+# Any file with "secret" or "credentials" in the name
+*secret*
+*credentials*
+*private*
+
+# Terraform / cloud configs with credentials
+*.tfvars
+*.tfstate
+*.tfstate.backup
+
+# Firebase
+.firebaserc
+firebase-debug.log*
+
+# Docker secrets (keep Dockerfile, exclude env overrides)
+docker-compose.override.yml
+.docker/

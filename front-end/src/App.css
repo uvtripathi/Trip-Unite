@@ -1,0 +1,518 @@
+/* ══════════════════════════════════════════════════ */
+/*  GLOBAL THEME SYSTEM                               */
+/*  :root = dark (default)                            */
+/*  [data-theme="light"] = light overrides            */
+/* ══════════════════════════════════════════════════ */
+
+/* ── Dark (default) ── */
+:root {
+  --bg:            #0d0b1e;
+  --bg2:           #13102a;
+  --bg3:           #1a1635;
+  --card:          rgba(255,255,255,0.05);
+  --text:          #f0f0ff;
+  --text2:         rgba(255,255,255,0.62);
+  --text3:         rgba(255,255,255,0.40);
+  --border:        rgba(255,255,255,0.09);
+  --nav-bg:        rgba(13,11,30,0.70);
+  --hero-tint:     rgba(0,0,0,0.35);
+  --section-bg:    #13102a;
+  --input-bg:      rgba(255,255,255,0.08);
+  --input-text:    #f1f5f9;
+  --input-border:  rgba(255,255,255,0.12);
+  --label-color:   rgba(255,255,255,0.42);
+  --chip-bg:       rgba(255,255,255,0.05);
+  --chip-border:   rgba(255,255,255,0.09);
+  --nav-pill-bg:   rgba(255,255,255,0.10);
+  --nav-pill-border:rgba(255,255,255,0.18);
+  --nav-link-color:rgba(255,255,255,0.72);
+  --shadow:        rgba(0,0,0,0.4);
+}
+
+/* ── Light ── */
+[data-theme="light"] {
+  --bg:            #f0f4ff;
+  --bg2:           #e5eaff;
+  --bg3:           #dce3ff;
+  --card:          rgba(255,255,255,0.85);
+  --text:          #0f172a;
+  --text2:         #374151;
+  --text3:         rgba(0,0,0,0.45);
+  --border:        rgba(0,0,0,0.10);
+  --nav-bg:        rgba(240,244,255,0.88);
+  --hero-tint:     rgba(0,0,0,0.12);
+  --section-bg:    #e8eeff;
+  --input-bg:      rgba(255,255,255,0.90);
+  --input-text:    #0f172a;
+  --input-border:  rgba(0,0,0,0.14);
+  --label-color:   rgba(0,0,0,0.50);
+  --chip-bg:       rgba(255,255,255,0.70);
+  --chip-border:   rgba(0,0,0,0.08);
+  --nav-pill-bg:   rgba(255,255,255,0.60);
+  --nav-pill-border:rgba(0,0,0,0.12);
+  --nav-link-color:#374151;
+  --shadow:        rgba(0,0,0,0.12);
+}
+
+/* ── Body base ── */
+body {
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ── Route fade ── */
+.route-shell { animation: route-fade 320ms ease; }
+@keyframes route-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+input:focus, select:focus, textarea:focus, button:focus { outline: none; }
+
+/* ════════════════════════════════════════════════════ */
+/*  PAGE1 / HOME                                        */
+/* ════════════════════════════════════════════════════ */
+.page                    { background: var(--bg); color: var(--text); }
+.content-section         { background: var(--section-bg) !important; }
+.content-section h2      { color: var(--text) !important; }
+.content-section p       { color: var(--text2) !important; }
+.feature-card            { background: var(--card) !important; border-color: var(--border) !important; }
+.feature-card h3         { color: var(--text) !important; }
+.feature-card p          { color: var(--text2) !important; }
+.hero-overlay {
+  background: linear-gradient(180deg, var(--hero-tint) 0%, rgba(0,0,0,0.45) 100%) !important;
+}
+.navbar1 { background: var(--nav-bg) !important; transition: background 0.4s ease !important; }
+[data-theme="light"] .navbar1.scrolled {
+  background: rgba(240,244,255,0.95) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+[data-theme="light"] .nav-link        { color: #1f2937 !important; }
+[data-theme="light"] .brand-logo-top,
+[data-theme="light"] .brand-logo-bottom { color: #0f172a !important; }
+
+/* ════════════════════════════════════════════════════ */
+/*  MAIN (/main explore page)                           */
+/* ════════════════════════════════════════════════════ */
+.background {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg) 60%, #667eea 40%) 0%,
+    color-mix(in srgb, var(--bg) 60%, #764ba2 40%) 100%
+  ) !important;
+}
+
+/* ════════════════════════════════════════════════════ */
+/*  ABOUT                                               */
+/* ════════════════════════════════════════════════════ */
+.about-wrapper              { background: var(--bg) !important; color: var(--text) !important; }
+.about-name, .about-role    { color: var(--text) !important; }
+.about-bio, .about-greeting { color: var(--text2) !important; }
+.about-stat-num             { color: var(--text) !important; }
+.about-nav {
+  background: var(--nav-bg) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+[data-theme="light"] .about-nav-links {
+  background: var(--nav-pill-bg) !important;
+  border-color: var(--nav-pill-border) !important;
+}
+
+/* ════════════════════════════════════════════════════ */
+/*  CONTACT                                             */
+/* ════════════════════════════════════════════════════ */
+.contact-wrapper  { background: var(--bg2) !important; }
+.contact-navbar   { background: var(--nav-bg) !important; border-color: var(--border) !important; }
+.contact-nav-pill {
+  background: var(--nav-pill-bg) !important;
+  border-color: var(--nav-pill-border) !important;
+}
+.contact-nav-link { color: var(--nav-link-color) !important; }
+.contact-heading, .contact-subheading { color: var(--text) !important; }
+.contact-section  { background: var(--card) !important; border-color: var(--border) !important; }
+.contact-left     { background: var(--chip-bg) !important; }
+.contact-text     { color: var(--label-color) !important; }
+.contact-input {
+  background: var(--input-bg) !important;
+  color: var(--input-text) !important;
+  border-color: var(--input-border) !important;
+}
+.contact-input::placeholder { color: var(--label-color) !important; }
+.contact-right h2   { color: var(--text) !important; }
+.contact-information { color: var(--text2) !important; }
+.contact-icons      { color: var(--text2) !important; }
+
+/* ════════════════════════════════════════════════════ */
+/*  JOIN TRIP                                           */
+/* ════════════════════════════════════════════════════ */
+.jt-wrapper {
+  background:
+    radial-gradient(ellipse at 15% 5%,  rgba(102,126,234,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 90%, rgba(118,75,162,0.13)  0%, transparent 50%),
+    var(--bg) !important;
+}
+/* Navbar */
+.jt-nav            { background: var(--nav-bg) !important; border-color: var(--border) !important; }
+.jt-nav-pill       { background: var(--nav-pill-bg) !important; border-color: var(--nav-pill-border) !important; }
+.jt-nav-link       { color: var(--nav-link-color) !important; }
+[data-theme="light"] .jt-nav-link:hover { background: rgba(0,0,0,0.07) !important; color: #0f172a !important; }
+/* Info chips */
+.jt-chip           { background: var(--chip-bg) !important; border-color: var(--chip-border) !important; }
+.jt-chip-label     { color: var(--label-color) !important; }
+.jt-chip-value     { color: var(--text) !important; }
+.jt-description    { background: var(--chip-bg) !important; border-color: var(--chip-border) !important; color: var(--text2) !important; }
+/* Form card */
+.jt-form-card      { background: var(--card) !important; border-color: var(--border) !important; }
+.jt-form-sub       { color: var(--text3) !important; }
+.jt-label          { color: var(--label-color) !important; }
+.jt-input {
+  background: var(--input-bg) !important;
+  color: var(--input-text) !important;
+  border-color: var(--input-border) !important;
+}
+.jt-input::placeholder { color: var(--text3) !important; }
+.jt-radio-pill     { background: var(--chip-bg) !important; border-color: var(--chip-border) !important; color: var(--text2) !important; }
+.jt-budget-chip    { color: var(--text2) !important; }
+[data-theme="light"] .jt-form-title {
+  background: linear-gradient(135deg, #1e1b4b 30%, #7c3aed 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+[data-theme="light"] .jt-loading { background: var(--bg) !important; color: var(--text2) !important; }
+
+/* ════════════════════════════════════════════════════ */
+/*  CREATE TRIP                                         */
+/* ════════════════════════════════════════════════════ */
+.create-wrapper { background: var(--bg) !important; }
+.create-nav     { background: var(--nav-bg) !important; border-color: var(--border) !important; }
+.create-nav-pill { background: var(--nav-pill-bg) !important; border-color: var(--nav-pill-border) !important; }
+.create-nav-link { color: var(--nav-link-color) !important; }
+/* Form card */
+.create-card     { background: var(--card) !important; border-color: var(--border) !important; }
+.cf-label        { color: var(--label-color) !important; }
+.cf-input {
+  background: var(--input-bg) !important;
+  color: var(--input-text) !important;
+  border-color: var(--input-border) !important;
+}
+.cf-input::placeholder { color: var(--text3) !important; }
+.cf-radio-label  { color: var(--text2) !important; }
+/* Left panel */
+.clp-sub         { color: var(--text2) !important; }
+.clp-features li { color: var(--text2) !important; }
+[data-theme="light"] .clp-headline {
+  background: linear-gradient(135deg, #1e1b4b 0%, #7c3aed 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+[data-theme="light"] .create-card-title {
+  background: linear-gradient(135deg, #1e1b4b 30%, #7c3aed 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* ════════════════════════════════════════════════════ */
+/*  DASHBOARD                                           */
+/* ════════════════════════════════════════════════════ */
+.dash-wrapper      { background: var(--bg) !important; color: var(--text) !important; }
+.dash-nav          { background: var(--nav-bg) !important; border-color: var(--border) !important; }
+.dash-nav-link     { color: var(--text2) !important; }
+.dash-sidebar      { background: var(--bg2) !important; border-color: var(--border) !important; }
+.dash-username     { color: var(--text) !important; }
+.dash-role         { color: var(--text3) !important; }
+.dash-sidebar-btn  { color: var(--text2) !important; }
+.dash-trip-card    { background: var(--card) !important; border-color: var(--border) !important; }
+.dtc-dest          { color: var(--text) !important; }
+.dtc-meta          { color: var(--text2) !important; }
+.dtc-desc          { color: var(--text2) !important; }
+.dash-section-title { color: var(--text) !important; }
+.dash-leader-panel { background: var(--bg2) !important; border-color: var(--border) !important; }
+.dlp-title         { color: var(--text) !important; }
+.dlp-sub           { color: var(--text2) !important; }
+.dlp-table th      { color: var(--text2) !important; border-color: var(--border) !important; }
+.dlp-table td      { color: var(--text) !important; border-color: var(--border) !important; }
+
+/* ════════════════════════════════════════════════════ */
+/*  PAGE2 (home features / destinations)                */
+/* ════════════════════════════════════════════════════ */
+.page2-wrapper        { background: var(--section-bg) !important; color: var(--text) !important; }
+.p2-feature-item      { background: var(--card) !important; border-color: var(--border) !important; }
+.p2-feature-title     { color: var(--text) !important; }
+.p2-feature-desc      { color: var(--text2) !important; }
+.p2-section-title     { color: var(--text) !important; }
+.p2-section-sub       { color: var(--text2) !important; }
+
+/* ════════════════════════════════════════════════════ */
+/*  LIGHT MODE  –  NAVBAR TRANSFORMATIONS              */
+/*  Applied to EVERY navbar across all pages           */
+/* ════════════════════════════════════════════════════ */
+
+/* ── Shared: all sticky navbars get a crisp white+shadow in light ── */
+[data-theme="light"] .navbar1,
+[data-theme="light"] .jt-nav,
+[data-theme="light"] .create-nav,
+[data-theme="light"] .dash-nav,
+[data-theme="light"] .about-nav,
+[data-theme="light"] .contact-navbar {
+  background: rgba(255,255,255,0.90) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(102,126,234,0.18) !important;
+  box-shadow: 0 4px 24px rgba(102,126,234,0.10) !important;
+}
+
+/* ── Shared: all nav pills get a purple-tinted glass look ── */
+[data-theme="light"] .navbar-items,
+[data-theme="light"] .jt-nav-pill,
+[data-theme="light"] .create-nav-pill,
+[data-theme="light"] .about-nav-links,
+[data-theme="light"] .contact-nav-pill {
+  background: rgba(102,126,234,0.08) !important;
+  border: 1.5px solid rgba(102,126,234,0.22) !important;
+  box-shadow: 0 2px 12px rgba(102,126,234,0.12) !important;
+}
+
+/* ── Shared: all nav links become deep slate ── */
+[data-theme="light"] .nav-link,
+[data-theme="light"] .jt-nav-link,
+[data-theme="light"] .create-nav-link,
+[data-theme="light"] .about-nav-link,
+[data-theme="light"] .contact-nav-link {
+  color: #334155 !important;
+  font-weight: 600 !important;
+}
+[data-theme="light"] .nav-link:hover,
+[data-theme="light"] .jt-nav-link:hover,
+[data-theme="light"] .create-nav-link:hover,
+[data-theme="light"] .about-nav-link:hover,
+[data-theme="light"] .contact-nav-link:hover {
+  background: rgba(102,126,234,0.14) !important;
+  color: #4f46e5 !important;
+}
+
+/* ── Active nav pill in light ── */
+[data-theme="light"] .nav-link.active-nav,
+[data-theme="light"] .contact-nav-active {
+  background: rgba(102,126,234,0.20) !important;
+  color: #4f46e5 !important;
+}
+
+/* ── Home page  /  Page1 auth buttons ── */
+[data-theme="light"] .btn-primary {
+  background: #fff !important;
+  color: #4f46e5 !important;
+  border: 1.5px solid rgba(102,126,234,0.40) !important;
+  box-shadow: 0 2px 10px rgba(102,126,234,0.15) !important;
+}
+[data-theme="light"] .btn-primary:hover {
+  background: rgba(102,126,234,0.08) !important;
+  border-color: #667eea !important;
+  transform: translateY(-1px) !important;
+}
+[data-theme="light"] .btn-secondary {
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(102,126,234,0.35) !important;
+}
+[data-theme="light"] .btn-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 3px 12px rgba(239,68,68,0.30) !important;
+}
+[data-theme="light"] .btn-danger:hover {
+  box-shadow: 0 6px 20px rgba(239,68,68,0.45) !important;
+}
+
+/* ── Welcome pill (logged-in user display) ── */
+[data-theme="light"] .welcome-text {
+  background: rgba(102,126,234,0.10) !important;
+  color: #334155 !important;
+  border: 1px solid rgba(102,126,234,0.25) !important;
+}
+
+/* ── Scrolled state in light mode ── */
+[data-theme="light"] .navbar1.scrolled {
+  background: rgba(255,255,255,0.96) !important;
+  box-shadow: 0 6px 28px rgba(102,126,234,0.14) !important;
+}
+[data-theme="light"] .navbar1.scrolled .nav-link { color: #334155 !important; }
+[data-theme="light"] .navbar1.scrolled .nav-link:hover {
+  background: rgba(102,126,234,0.12) !important;
+  color: #4f46e5 !important;
+}
+[data-theme="light"] .navbar1.scrolled .navbar-items {
+  background: rgba(102,126,234,0.08) !important;
+  border-color: rgba(102,126,234,0.22) !important;
+}
+
+/* ── BrandLogo text in light ── */
+[data-theme="light"] .brand-logo-top  { color: #4f46e5 !important; }
+[data-theme="light"] .brand-logo-bottom { color: #1e1b4b !important; }
+
+/* ── Dashboard sidebar nav buttons in light ── */
+[data-theme="light"] .dash-nav-link { color: #334155 !important; }
+[data-theme="light"] .dash-nav-link:hover {
+  background: rgba(102,126,234,0.10) !important;
+  color: #4f46e5 !important;
+}
+[data-theme="light"] .dash-nav-cta {
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+  color: #fff !important;
+}
+[data-theme="light"] .dash-sidebar-btn { color: #334155 !important; }
+[data-theme="light"] .dash-sidebar-btn:hover {
+  background: rgba(102,126,234,0.10) !important;
+  color: #4f46e5 !important;
+}
+[data-theme="light"] .dash-sidebar-btn.active {
+  background: rgba(102,126,234,0.15) !important;
+  border-color: rgba(102,126,234,0.35) !important;
+  color: #4f46e5 !important;
+}
+
+/* ════════════════════════════════════════════════════════ */
+/*  GLOBAL GOLDEN RING-GLOW  –  hover on buttons & cards  */
+/* ════════════════════════════════════════════════════════ */
+
+:root {
+  --glow-sm: 0 0 0 2px rgba(251,191,36,0.25), 0 0 14px rgba(251,191,36,0.18);
+  --glow-md: 0 0 0 3px rgba(251,191,36,0.30), 0 0 22px rgba(251,191,36,0.22), 0 0 45px rgba(251,191,36,0.10);
+  --glow-lg: 0 0 0 3px rgba(251,191,36,0.35), 0 0 28px rgba(251,191,36,0.28), 0 0 60px rgba(251,191,36,0.12);
+}
+
+/* ─── BUTTONS ─── */
+button:hover:not(:disabled),
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-danger:hover,
+.cf-submit:hover,
+.jt-submit-btn:hover:not(:disabled),
+.dlp-btn.approve:hover:not(:disabled),
+.dlp-btn.reject:hover:not(:disabled),
+.dtc-manage-btn:hover,
+.dlp-close:hover,
+.dash-empty-cta:hover,
+.hero-cta-primary:hover,
+.hero-cta-secondary:hover,
+.contact-submit:hover {
+  box-shadow: var(--glow-md) !important;
+}
+
+/* ─── TRIP CARDS ─── */
+.trip-card-v2:hover {
+  box-shadow: var(--glow-lg), 0 20px 50px rgba(0,0,0,0.25) !important;
+  transform: translateY(-5px) !important;
+}
+
+.dash-trip-card:hover {
+  box-shadow: var(--glow-md), 0 14px 36px rgba(0,0,0,0.20) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* ─── INFO CHIPS ─── */
+.jt-chip:hover {
+  box-shadow: var(--glow-sm) !important;
+}
+
+/* ─── FORM CARDS ─── */
+.jt-form-card:hover,
+.create-card:hover,
+.contact-section:hover {
+  box-shadow: var(--glow-sm), 0 32px 80px rgba(0,0,0,0.30) !important;
+}
+
+/* ─── GENDER / RADIO PILLS ─── */
+.jt-radio-pill:hover,
+.jt-radio-pill.active {
+  box-shadow: var(--glow-sm) !important;
+}
+
+/* ─── NAV LINKS ─── */
+.nav-link:hover,
+.jt-nav-link:hover,
+.create-nav-link:hover,
+.about-nav-link:hover,
+.contact-nav-link:hover {
+  box-shadow: 0 0 12px rgba(251,191,36,0.18), 0 0 0 1px rgba(251,191,36,0.12) !important;
+}
+
+/* ─── PAGE FEATURE CARDS ─── */
+.feature-card:hover,
+.dest-card:hover,
+.p2-feature-item:hover {
+  box-shadow: var(--glow-lg) !important;
+  transform: translateY(-6px) !important;
+}
+
+/* ─── INPUT FOCUS — golden ring ─── */
+.jt-input:focus,
+.cf-input:focus,
+.contact-input:focus {
+  box-shadow: 0 0 0 3px rgba(251,191,36,0.20), 0 0 12px rgba(251,191,36,0.12) !important;
+  border-color: rgba(251,191,36,0.45) !important;
+}
+
+/* ─── Button press pulse ─── */
+@keyframes golden-pulse {
+  0%   { box-shadow: 0 0 0 0   rgba(251,191,36,0.50); }
+  70%  { box-shadow: 0 0 0 12px rgba(251,191,36,0.00); }
+  100% { box-shadow: 0 0 0 0   rgba(251,191,36,0.00); }
+}
+
+.cf-submit:active,
+.jt-submit-btn:active,
+.btn-secondary:active,
+.btn-primary:active {
+  animation: golden-pulse 0.45s ease-out !important;
+}
+
+/* ─── Light mode: slightly deeper amber ─── */
+[data-theme="light"] {
+  --glow-sm: 0 0 0 2px rgba(245,158,11,0.32), 0 0 16px rgba(245,158,11,0.22);
+  --glow-md: 0 0 0 3px rgba(245,158,11,0.38), 0 0 24px rgba(245,158,11,0.26), 0 0 50px rgba(245,158,11,0.10);
+  --glow-lg: 0 0 0 3px rgba(245,158,11,0.42), 0 0 32px rgba(245,158,11,0.30), 0 0 70px rgba(245,158,11,0.12);
+}
+
+/* ════════════════════════════════════════════════════════ */
+/*  GLOBAL NAV DIVIDER — thin separator before ThemeToggle */
+/* ════════════════════════════════════════════════════════ */
+
+.nav-divider,
+.contact-nav-divider,
+.showcase-nav-divider,
+.about-nav-divider {
+  display: inline-block;
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  margin: 0 0.15rem;
+  flex-shrink: 0;
+  align-self: center;
+  transition: background 0.4s ease;
+}
+
+[data-theme="light"] .nav-divider,
+[data-theme="light"] .contact-nav-divider,
+[data-theme="light"] .showcase-nav-divider,
+[data-theme="light"] .about-nav-divider {
+  background: rgba(102, 126, 234, 0.30);
+}
+
+/* About page — li wrapper that holds divider + toggle */
+.about-nav-divider-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

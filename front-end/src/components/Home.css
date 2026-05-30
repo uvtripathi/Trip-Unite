@@ -1,0 +1,13 @@
+.back{
+    background: url("../Assets/home-assets/Homepage-bgimg.jpg") no-repeat center ;
+    background-size: contain;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left: 0;    
+    z-index: -10;
+}

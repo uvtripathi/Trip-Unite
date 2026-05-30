@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* ═══════════════════════════════════════════════ */
+/*  JOIN TRIP  –  premium dark glassmorphism       */
+/* ═══════════════════════════════════════════════ */
+
+.jt-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 15% 5%,  rgba(102,126,234,0.22) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 90%, rgba(118,75,162,0.20) 0%, transparent 50%),
+    var(--bg, #0d0b1e);
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Loading */
+.jt-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  background: var(--bg, #0d0b1e);
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+}
+.jt-spinner {
+  width: 40px; height: 40px;
+  border: 3px solid rgba(167,139,250,0.2);
+  border-top-color: #a78bfa;
+  border-radius: 50%;
+  animation: jt-spin 0.8s linear infinite;
+}
+@keyframes jt-spin { to { transform: rotate(360deg); } }
+
+/* ── Navbar ── */
+.jt-nav {
+  position: sticky; top: 0; z-index: 100;
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.7rem 2rem; gap: 1rem;
+  background: rgba(13,11,30,0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.jt-nav-pill {
+  display: flex; align-items: center; gap: 0.2rem;
+  background: rgba(255,255,255,0.09);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 50px;
+  padding: 0.28rem 0.4rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.jt-nav-link {
+  color: rgba(255,255,255,0.72); font-size: 0.875rem; font-weight: 600;
+  padding: 0.4rem 1rem; border-radius: 50px;
+  transition: all 0.22s ease; text-decoration: none; white-space: nowrap;
+}
+.jt-nav-link:hover { background: rgba(255,255,255,0.16); color: #fff; }
+.jt-nav-right { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
+
+/* ── Body layout ── */
+.jt-body {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  padding: 2.5rem 3rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ──────────────────────────────── */
+/*  LEFT — Trip Details             */
+/* ──────────────────────────────── */
+.jt-left {
+  flex: 1.3;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Hero image card */
+.jt-hero-img {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.jt-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.72) 100%);
+}
+.jt-hero-tag {
+  position: absolute;
+  top: 14px; left: 14px; z-index: 2;
+  background: rgba(255,255,255,0.16);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.8rem;
+  border-radius: 50px;
+}
+.jt-destination {
+  position: absolute;
+  bottom: 16px; left: 18px; right: 18px; z-index: 2;
+  font-size: clamp(1.5rem, 3.5vw, 2.3rem);
+  font-weight: 900;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.03em;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.4);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+/* Description */
+.jt-description {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  margin: 0;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+}
+
+/* Info chip grid */
+.jt-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.jt-chip {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: background 0.2s ease;
+}
+.jt-chip:hover { background: rgba(255,255,255,0.08); }
+.jt-chip-full { grid-column: 1 / -1; }
+
+.jt-chip-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.42);   /* muted — easy to distinguish from value */
+}
+.jt-chip-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #e2e8f0;                  /* bright white-grey — high readability */
+  line-height: 1.4;
+}
+/* Special value colours */
+.jt-budget  { color: #34d399; font-weight: 700; }
+.jt-yes     { color: #4ade80; }
+.jt-no      { color: #f87171; }
+
+/* ──────────────────────────────── */
+/*  RIGHT — Join Form               */
+/* ──────────────────────────────── */
+.jt-right {
+  flex: 0 0 340px;
+  min-width: 0;
+  position: sticky;
+  top: 5.5rem;
+  align-self: flex-start;
+}
+
+.jt-form-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 22px;
+  padding: 2rem 1.8rem;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.35),
+              inset 0 1px 0 rgba(255,255,255,0.09);
+}
+
+.jt-form-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.3rem;
+  background: linear-gradient(135deg, #fff 30%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+}
+.jt-form-sub {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.42);
+  text-align: center;
+  margin: 0 0 1.4rem;
+  line-height: 1.5;
+}
+
+/* Form itself */
+.jt-form { display: flex; flex-direction: column; gap: 1rem; }
+
+.jt-field { display: flex; flex-direction: column; gap: 0.38rem; }
+
+.jt-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);  /* clearly different from input text */
+}
+
+.jt-input {
+  width: 100%;
+  padding: 0.65rem 0.95rem;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #f1f5f9;                  /* bright for readability */
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+  box-sizing: border-box;
+}
+.jt-input::placeholder { color: rgba(255,255,255,0.25); }
+.jt-input:focus {
+  outline: none;
+  border-color: rgba(167,139,250,0.7);
+  background: rgba(255,255,255,0.10);
+  box-shadow: 0 0 0 3px rgba(139,92,246,0.15);
+}
+
+/* Gender pill radios */
+.jt-radio-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.jt-radio-pill {
+  display: flex; align-items: center; gap: 0.35rem;
+  padding: 0.38rem 0.85rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.65);
+  font-size: 0.82rem; font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.jt-radio-pill input[type="radio"] { display: none; }
+.jt-radio-pill.active,
+.jt-radio-pill:hover {
+  border-color: #a78bfa;
+  background: rgba(139,92,246,0.2);
+  color: #c4b5fd;
+}
+
+/* Budget chip */
+.jt-budget-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(52,211,153,0.08);
+  border: 1px solid rgba(52,211,153,0.25);
+  border-radius: 10px;
+  padding: 0.65rem 0.95rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
+}
+.jt-budget-amt {
+  font-weight: 800;
+  color: #34d399;
+  font-size: 1rem;
+}
+
+/* Submit button */
+.jt-submit-btn {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.28s ease;
+  box-shadow: 0 6px 24px rgba(102,126,234,0.4);
+  margin-top: 0.25rem;
+}
+.jt-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(102,126,234,0.6);
+}
+.jt-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .jt-body { flex-direction: column; padding: 1.5rem; gap: 2rem; }
+  .jt-right { position: static; flex: 1; width: 100%; }
+  .jt-info-grid { grid-template-columns: 1fr 1fr; }
+  .jt-nav-pill { display: none; }
+}
+@media (max-width: 480px) {
+  .jt-info-grid { grid-template-columns: 1fr; }
+  .jt-hero-img { height: 200px; }
+}
